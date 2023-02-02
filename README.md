@@ -1,6 +1,6 @@
 # nested-comments
 
-See how GraphQL, Prisma and Next.js can be used together.
+See how GraphQL, Prisma and Next.js can be used together and experiment with Next 13 and cursor based pagination.
 
 # References
 
