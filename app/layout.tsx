@@ -1,3 +1,4 @@
+import ApolloClientProvider from './ApolloClientProvider'
 import './globals.css'
 
 export default function RootLayout({
@@ -6,13 +7,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <ApolloClientProvider>{children}</ApolloClientProvider>
+      </body>
     </html>
   )
 }
