@@ -1,3 +1,4 @@
+import prisma from '@/lib/prisma'
 import { builder } from '../builder'
 
 builder.prismaObject('Post', {
@@ -10,9 +11,12 @@ builder.prismaObject('Post', {
 })
 
 builder.queryField('posts', (t) =>
-  t.prismaField({
-    type: ['Post'],
-    resolve: (query, _parent, _args, _ctx, _info) =>
-      prisma.post.findMany({ ...query }),
+  t.prismaConnection({
+    type: 'Post',
+    cursor: 'id',
+    resolve: (query, _parent, _args, _ctx, _info) => {
+      console.log('QUERY:', query)
+      return prisma.post.findMany({ ...query })
+    },
   })
 )
