@@ -1,11 +1,13 @@
-import ApolloClientProvider from './ApolloClientProvider'
 import './globals.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Session } from 'next-auth'
+import Providers from './Providers'
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en'>
       {/*
@@ -14,7 +16,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <ApolloClientProvider>{children}</ApolloClientProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

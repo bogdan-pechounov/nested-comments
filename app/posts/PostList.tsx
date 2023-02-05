@@ -30,8 +30,7 @@ export default function PostList() {
     variables: { first: 2 },
   })
 
-  if (loading) return <div>Loading...</div>
-  if (!data) return
+  if (loading || !data) return <div>Loading...</div>
 
   const { endCursor, hasNextPage } = data.posts.pageInfo
 
