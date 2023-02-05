@@ -1,5 +1,6 @@
 'use client'
-import { ApolloProvider, InMemoryCache } from '@apollo/client'
+
+import { ApolloProvider } from '@apollo/client'
 import apolloClient from '@/lib/apollo'
 import { SessionProvider } from 'next-auth/react'
 

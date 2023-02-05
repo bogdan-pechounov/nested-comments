@@ -16,6 +16,7 @@ builder.queryField('posts', (t) =>
     cursor: 'id',
     resolve: (query, _parent, _args, _ctx, _info) => {
       console.log('QUERY:', query)
+      console.log('CONTEXT', _ctx)
       return prisma.post.findMany({ ...query })
     },
   })

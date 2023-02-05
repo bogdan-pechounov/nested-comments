@@ -26,18 +26,20 @@ const GET_POSTS = gql(/* GraphQL */ `
 `)
 
 export default function PostList() {
+  //todo render first posts on server
   const { data, loading, fetchMore } = useQuery(GET_POSTS, {
     variables: { first: 2 },
   })
 
-  if (loading || !data) return <div>Loading...</div>
+  if (loading) return <div>Loading...</div>
+  if (!data) return <div></div> //todo what to do if done loading but there is no data
 
   const { endCursor, hasNextPage } = data.posts.pageInfo
 
   return (
     <div>
-      {data?.posts.edges.map(({ node }) => (
-        <div key={node.id}>{node.title}</div>
+      {data.posts.edges.map((edge) => (
+        <div key={edge?.node.id}>{edge?.node.title}</div>
       ))}
       {hasNextPage ? (
         <button

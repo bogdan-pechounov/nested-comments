@@ -6,7 +6,7 @@ export default function SignInButton() {
   if (session) {
     return (
       <>
-        <Navbar.Text className='me-1'>{session.user?.email}</Navbar.Text>
+        <Navbar.Text className='pe-2'>{session.user?.email}</Navbar.Text>
         <Button variant='primary' onClick={() => signOut()}>
           Sign out
         </Button>
