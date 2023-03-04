@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          title\n          id\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n": types.GetPostsDocument,
+    "\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          id\n          title\n          body\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n": types.GetPostsDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          title\n          id\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          title\n          id\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n"];
+export function gql(source: "\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          id\n          title\n          body\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetPosts($first: Int, $after: ID) {\n    posts(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n      edges {\n        cursor\n        node {\n          id\n          title\n          body\n          user {\n            name\n          }\n        }\n      }\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
