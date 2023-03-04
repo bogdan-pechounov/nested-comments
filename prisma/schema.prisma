@@ -89,7 +89,7 @@ model Comment {
   votes     Vote[]
 }
 
-//todo like post or comment
+//TODO like post or comment
 model Vote {
   value     VoteValue
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
